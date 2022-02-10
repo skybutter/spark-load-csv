@@ -1,0 +1,9 @@
+# Use --jars
+${SPARK_HOME}/bin/spark-submit --name "LoadCsv" --class alan.spark.SparkPi --jars "file:////mnt/c/gitrepo/spark-load-csv/jars/delta-core_2.11-0.6.1.jar" /mnt/c/gitrepo/spark-load-csv/target/spark-load-csv-1.0-SNAPSHOT.jar "/mnt/c/gitrepo/loaddb-sqlite/data/test_identity.csv" test_identity frauddetection /mnt/c/gitrepo/spark-load-csv/db
+# Use --packages
+${SPARK_HOME}/bin/spark-submit --name "LoadCsv" --class alan.spark.SparkPi --packages io.delta:delta-core_2.11:0.6.1 /mnt/c/gitrepo/spark-load-csv/target/spark-load-csv-1.0-SNAPSHOT.jar "/mnt/c/gitrepo/loaddb-sqlite/data/test_identity.csv" test_identity frauddetection /mnt/c/gitrepo/spark-load-csv/db
+
+# the jar or packages could be written into spark-defaults.conf in ${SPARK_HOME}/conf to avoid specifying everytime
+# or build an uber JAR following this link:
+https://howtodoinjava.com/maven/maven-shade-plugin-create-uberfat-jar-example/
+http://tutorials.jenkov.com/maven/maven-build-fat-jar.html
